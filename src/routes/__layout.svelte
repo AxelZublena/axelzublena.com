@@ -14,15 +14,23 @@
 </script>
 
 <div
-	class="flex justify-center items-center h-screen m-auto gap-6 py-24 max-w-lg xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl divide-x-2"
+	class="flex justify-center h-screen m-auto gap-6 py-24 max-w-lg xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl"
 >
-	<div class="w-28">
+	<div class="">
 		<Nav segment={key} />
 	</div>
+	<!-- <div class="w-1 bg-gray-300 h-56" /> -->
 
-	<div class="w-full">
+	<div class="w-full h-full">
 		<PageTransition refresh={key}>
 			<slot />
 		</PageTransition>
 	</div>
 </div>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+	div {
+		font-family: 'Ubuntu', sans-serif;
+	}
+</style>
