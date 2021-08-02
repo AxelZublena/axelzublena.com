@@ -8,7 +8,7 @@
 
 <script>
 	import '../app.postcss';
-	import Nav from '../components/navigation.svelte';
+	import Nav from '../components/Navigation.svelte';
 	import PageTransition from '../components/PageTransition.svelte';
 	export let key;
 </script>

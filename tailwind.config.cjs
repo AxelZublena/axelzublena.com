@@ -6,9 +6,12 @@ const config = {
 	theme: {
 		extend: {
             colors:{
-                'custom-gray':'#928374',
+                'custom-gray':'#424242',
+                'grey-1':'#2e2e2e',
+                'grey-2':'#212121',
                 'grey-700':'#504945',
-                'grey-800':'#282828',
+                // 'grey-800':'#282828',
+                'grey-800':'#202122',
                 'grey-900':'#1d2021',
                 'forground-0':'#fbf1c7',
                 'red-dark':'#cc241d',

@@ -1,6 +1,6 @@
 <script>
 	import { fly } from 'svelte/transition';
-	import Page from './page.svelte';
+	import Page from './Page.svelte';
 
 	export let refresh = '';
 </script>
