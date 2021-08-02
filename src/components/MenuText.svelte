@@ -4,12 +4,12 @@
 	export let segment;
 </script>
 
-<div>
+<div class="">
 	<a
 		{href}
 		class={segment === href
-			? 'current text-2xl font-bold text-white'
-			: 'text-xl text-gray-200 hover:text-white'}
+			? 'current font-bold text-white mx-3 lg:text-2xl text-4xl'
+			: 'text-gray-200 hover:text-white mx-3 lg:text-xl text-2xl'}
 	>
 		{text}
 	</a>

@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="flex justify-center h-screen m-auto gap-6 py-24 max-w-lg xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl"
+	class="flex lg:flex-row flex-col justify-center h-screen m-auto gap-6 py-24 max-w-lg xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl "
 >
 	<div class="">
 		<Nav segment={key} />

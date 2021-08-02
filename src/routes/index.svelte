@@ -2,7 +2,7 @@
 	<title>Home</title>
 </svelte:head>
 <h1 class="text-5xl text-blue-400 pb-5">Home</h1>
-<figure class="flex flex-row gap-3 mb-6">
+<figure class="flex lg:flex-row flex-col gap-3 mb-6">
 	<img
 		src="/profile_pic.jpg"
 		alt="profile_pic.jpg"
