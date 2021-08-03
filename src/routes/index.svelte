@@ -10,9 +10,9 @@
 		height="500"
 		class="object-cover h-56 w-56 rounded-xl"
 	/>
-	<div class="pl-3 ">
+	<div class="pl-3">
 		<h2 class="text-3xl text-gray pb-2">About me</h2>
-		<div class="flex flex-row divide-x-2 pb-5">
+		<div class="flex flex-row divide-x-2 pb-5 ">
 			<div class="pr-4 text-gray-300">
 				<p class="text-xl"><span class="text-blue-300">Nationality</span>: French</p>
 				<p class="text-xl"><span class="text-blue-300">Age</span>: 19</p>
