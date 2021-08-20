@@ -1,5 +1,5 @@
 <script context="module">
-	export const load = async ({ page }) => ({
+	export const load = async ({ page, status }) => ({
 		props: {
 			key: page.path
 		}
@@ -8,7 +8,7 @@
 
 <script>
 	import '../app.postcss';
-	import Nav from '../components/Navigation.svelte';
+	import Nav from '../components/Navigation2.svelte';
 	import PageTransition from '../components/PageTransition.svelte';
 	export let key;
 </script>
