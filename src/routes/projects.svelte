@@ -1,47 +1,53 @@
+<script>
+	import Project from '../components/Project.svelte';
+</script>
+
 <svelte:head>
 	<title>Projects</title>
 </svelte:head>
 
-<h1 class="text-5xl text-blue-400 pb-6">Projects</h1>
+<h1 class="text-5xl text-blue-400 pb-7">Projects</h1>
+<Project
+	thumbnail="/projects/portfolio.png"
+	title="Portfolio - Personal website"
+	body="Website that shows what I can do and who I am."
+	technologies={['sveltekit', 'tailwind']}
+	link_github="github.com/AxelZublena/portfolio"
+	link_hosted="axelzublena.com"
+/>
 
-<div class="pb-5">
-	<h2>Agent Steve</h2>
-	<p>
-		A serious game developed for dutch elementary school students. The goal of the game is to
-		educate the player on which data they can and cannot share online. To this end, you (Agent
-		Steve) need to choose between multiple path.
-	</p>
-</div>
-<div class="pb-5">
-	<h2>Eventbrite QR Code</h2>
-	<p>
-		Web application for HZ University of Applied Sciences's open dates. The goal is to extract and
-		display the first and last name contained in an Eventbrite QR Code.
-	</p>
-</div>
-<div class="pb-5">
-	<h2>ARS Events</h2>
-	<p>
-		Web application to manage different simracing events. Manage your events, the content required
-		for them, the participants, the date and much more.
-	</p>
-</div>
-<div class="pb-5">
-	<h2>International Agents Portal</h2>
-	<p>
-		The HZ Marketing Department is responsible to provide all the necessary data to the
-		International Agents who are in charge of promoting HZ University abroad. The goal of this
-		application was to replace the old static website used by the HZ Marketing Department by a new
-		dynamic and presentable website.
-	</p>
-</div>
-<div>
-	<h2>Portfolio - Personal website</h2>
-	<p>Website that shows what I can do and who I am.</p>
-</div>
+<Project
+	thumbnail="/projects/agent-steve.png"
+	title="Agent Steve"
+	body="A serious game developed for dutch elementary school students. The goal of the game is to educate the player on which data they can and cannot share online. To this end, you (Agent Steve) need to choose between multiple path."
+	technologies={['typescript', 'html5']}
+	link_github="github.com/agent-steve/ICT-Game-Project"
+	link_hosted="agent-steve.axelzublena.com"
+/>
 
-<style>
-	h2 {
-		@apply text-3xl font-semibold;
-	}
-</style>
+<Project
+	thumbnail="/projects/int-portal.png"
+	title="International Agents Portal"
+	body="The HZ Marketing Department is responsible to provide all the necessary data to the International Agents who are in charge of promoting HZ University abroad. The goal of this application was to replace the old static website used by the HZ Marketing Department by a new dynamic and presentable website."
+	technologies={['php', 'laravel']}
+	link_github="github.com/404GNF/International-Agents-Portal"
+	link_hosted="int-portal.axelzublena.com"
+/>
+
+<Project
+	thumbnail="/projects/eventbrite.png"
+	title="Eventbrite QR Code"
+	body="Web application for HZ University of Applied Sciences's open dates. The goal is to extract and display the first and last name contained in an Eventbrite QR Code."
+	technologies={['javascript', 'html5']}
+	link_github="github.com/AxelZublena/EventbriteQRCode"
+	link_hosted="eventbrite.axelzublena.com"
+/>
+
+<Project
+	thumbnail="/projects/ars.png"
+	title="ARS Events"
+	body="Web application to manage different simracing events. Manage your events, the content required for them, the participants, the date and much more. French is the only language supported."
+	technologies={['node', 'typescript']}
+	link_github="github.com/AxelZublena/ARS-Events"
+	link_hosted="ars.axelzublena.com"
+/>

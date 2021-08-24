@@ -23,8 +23,8 @@
 			algorithms, Deep Learning with TensorFlow,...), game development (Unreal Engine and Unity),
 			operating systems (Linux and Windows) and cyber security. <br />Nowadays, I like to learn how
 			to create web applications with PHP (Laravel) and Javascript/TypeScript (mainly Svelte with
-			NodeJS). But I also really enjoy working with Linux, Docker containers and all the tasks
-			related to DevOps (CI/CD, deploying an app (SSL certificates, Nginx/Apache), ...).
+			NodeJS). I also really enjoy working with Linux, Docker containers and all the tasks related
+			to DevOps (CI/CD, deploying an app (SSL certificates, Nginx/Apache), ...).
 		</p>
 	</div>
 </div>
