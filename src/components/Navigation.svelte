@@ -1,11 +1,5 @@
 <script>
 	import MenuText from './MenuText.svelte';
-	import { page } from '../store.js';
-
-	let pageTitle;
-	page.subscribe((value) => {
-		pageTitle = value;
-	});
 
 	export let segment;
 
@@ -19,6 +13,8 @@
 			href: '/projects'
 		}
 	];
+
+	$: pageTitle = links[links.findIndex((link) => link.href == segment)].text;
 
 	let opened = false;
 	let style = 'hidden';

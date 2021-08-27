@@ -19,7 +19,6 @@
 	<div class="">
 		<Nav segment={key} />
 	</div>
-	<!-- <div class="w-1 bg-gray-300 h-56" /> -->
 
 	<div class="w-full h-full">
 		<PageTransition refresh={key}>
