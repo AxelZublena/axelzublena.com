@@ -40,10 +40,10 @@
 			<p class="text-xl"><span class="text-blue-300">Phone France</span>: +33 7 69 75 39 08</p>
 			<p class="text-xl"><span class="text-blue-300">Phone Netherlands</span>: +31 6 45 45 81 52</p>
 		</div>
-		<div class="flex-none ">
+		<div class="flex-none">
 			<a href="/cv.pdf" download="AxelZublenaCV.pdf">
 				<button
-					class="bg-blue-400 hover:bg-gray-400 text-gray-900 font-bold p-2 rounded-xl inline-flex items-center"
+					class="bg-blue-400 hover:bg-gray-400 w-full sm:w-auto justify-center text-gray-900 font-bold p-5 rounded-xl inline-flex items-center"
 				>
 					<svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path
@@ -55,24 +55,6 @@
 					</svg>
 					<span>Download my CV</span>
 				</button>
-				<!--<img src="/cv-preview2.png" alt="cv preview" class="rounded-lg object-cover w-32 h-28" />-->
-				<!--
-				<svg
-					class="fill-current w-4 h-4 mr-2"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 20 20"
-				>
-					<path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-				</svg>
-				<svg class="h-20 w-20 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-					/>
-				</svg>
-				<span class="text-xl font-bold">Download <br />CV</span>-->
 			</a>
 		</div>
 	</div>
