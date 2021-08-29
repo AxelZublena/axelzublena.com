@@ -9,21 +9,21 @@
 <h1 class="text-5xl text-blue-400 pb-7">Projects</h1>
 
 <Project
-	thumbnail="/projects/agent-steve.png"
-	title="Agent Steve"
-	body="A serious game developed for dutch elementary school students. The goal of the game is to educate the player on which data they can and cannot share online. To this end, you (Agent Steve) need to choose between multiple path."
-	technologies={['typescript', 'html5']}
-	link_github="github.com/agent-steve/ICT-Game-Project"
-	link_hosted="agent-steve.axelzublena.com"
-/>
-
-<Project
 	thumbnail="/projects/portfolio.png"
 	title="Portfolio - Personal website"
 	body="Website that shows what I can do and who I am."
 	technologies={['sveltekit', 'tailwind']}
 	link_github="github.com/AxelZublena/portfolio"
 	link_hosted="axelzublena.com"
+/>
+
+<Project
+	thumbnail="/projects/agent-steve.png"
+	title="Agent Steve"
+	body="A serious game developed for dutch elementary school students. The goal of the game is to educate the player on which data they can and cannot share online. To this end, you (Agent Steve) need to choose between multiple path."
+	technologies={['typescript', 'html5']}
+	link_github="github.com/agent-steve/ICT-Game-Project"
+	link_hosted="agent-steve.axelzublena.com"
 />
 
 <Project
