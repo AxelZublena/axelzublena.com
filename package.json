@@ -34,7 +34,6 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/ubuntu": "^4.5.0",
-		"@tailwindcss/aspect-ratio": "^0.2.1",
-		"eslint-config-airbnb": "^18.2.1"
+		"@tailwindcss/aspect-ratio": "^0.2.1"
 	}
 }

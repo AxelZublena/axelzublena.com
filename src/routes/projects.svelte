@@ -7,14 +7,6 @@
 </svelte:head>
 
 <h1 class="text-5xl text-blue-400 pb-7">Projects</h1>
-<Project
-	thumbnail="/projects/portfolio.png"
-	title="Portfolio - Personal website"
-	body="Website that shows what I can do and who I am."
-	technologies={['sveltekit', 'tailwind']}
-	link_github="github.com/AxelZublena/portfolio"
-	link_hosted="axelzublena.com"
-/>
 
 <Project
 	thumbnail="/projects/agent-steve.png"
@@ -26,12 +18,12 @@
 />
 
 <Project
-	thumbnail="/projects/int-portal.png"
-	title="International Agents Portal"
-	body="The HZ Marketing Department is responsible to provide all the necessary data to the International Agents who are in charge of promoting HZ University abroad. The goal of this application was to replace the old static website used by the HZ Marketing Department by a new dynamic and presentable website."
-	technologies={['php', 'laravel']}
-	link_github="github.com/404GNF/International-Agents-Portal"
-	link_hosted="int-portal.axelzublena.com"
+	thumbnail="/projects/portfolio.png"
+	title="Portfolio - Personal website"
+	body="Website that shows what I can do and who I am."
+	technologies={['sveltekit', 'tailwind']}
+	link_github="github.com/AxelZublena/portfolio"
+	link_hosted="axelzublena.com"
 />
 
 <Project
@@ -51,3 +43,12 @@
 	link_github="github.com/AxelZublena/ARS-Events"
 	link_hosted="ars.axelzublena.com"
 />
+
+<!--<Project
+	thumbnail="/projects/int-portal.png"
+	title="International Agents Portal"
+	body="The HZ Marketing Department is responsible to provide all the necessary data to the International Agents who are in charge of promoting HZ University abroad. The goal of this application was to replace the old static website used by the HZ Marketing Department by a new dynamic and presentable website."
+	technologies={['php', 'laravel']}
+	link_github="github.com/404GNF/International-Agents-Portal"
+	link_hosted="int-portal.axelzublena.com"
+/>-->

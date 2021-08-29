@@ -14,13 +14,11 @@
 </script>
 
 <div
-	class="flex lg:flex-row flex-col justify-center m-auto gap-6 lg:py-24 py-4 max-w-lg xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl"
+	class="flex lg:flex-row flex-col justify-center mx-auto gap-6 lg:py-24 py-4 max-w-lg xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl"
 >
-	<div class="">
-		<Nav segment={key} />
-	</div>
+	<Nav segment={key} />
 
-	<div class="w-full h-full">
+	<div class="w-full h-screen">
 		<PageTransition refresh={key}>
 			<slot />
 		</PageTransition>
