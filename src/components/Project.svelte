@@ -13,7 +13,7 @@
 	</div>
 	<div class="sm:w-5/6">
 		<h2 class="text-3xl font-semibold">{title}</h2>
-		<p>{body}</p>
+		<p>{@html body}</p>
 		<div class="flex flex-col sm:flex-row sm:items-center gap-2 pt-2">
 			<h4 class="font-bold text-blue-300">Technologies:</h4>
 			<div class="flex flex-row pb-3 sm:pb-0">
