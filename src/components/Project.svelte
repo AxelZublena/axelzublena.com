@@ -7,13 +7,13 @@
 	export let link_hosted;
 </script>
 
-<div class="pb-5 flex gap-4 text-justify">
+<div class="pb-5 flex gap-4">
 	<div class="pt-2 hidden sm:block sm:w-1/6">
 		<img src={thumbnail} alt="{title} thumbnail" class="object-cover rounded-xl h-36 w-36" />
 	</div>
 	<div class="sm:w-5/6">
 		<h2 class="text-3xl font-semibold">{title}</h2>
-		<p>{@html body}</p>
+		<p class="text-justify">{@html body}</p>
 		<div class="flex flex-col sm:flex-row sm:items-center gap-2 pt-2">
 			<h4 class="font-bold text-blue-300">Technologies:</h4>
 			<div class="flex flex-row pb-3 sm:pb-0">
@@ -68,13 +68,13 @@
 		</div>
 
 		<h4 class="font-bold text-blue-300">
-			GitHub link:
+			GitHub link: <br class="sm:hidden" />
 			<a href="https://{link_github}" target="_blank" class="text-white font-normal">
 				{link_github}
 			</a>
 		</h4>
 		<h4 class="font-bold text-blue-300">
-			Demo/Hosted link:
+			Demo/Hosted link: <br class="sm:hidden" />
 			<a href="https://{link_hosted}" target="_blank" class="text-white font-normal">
 				{link_hosted}
 			</a>
