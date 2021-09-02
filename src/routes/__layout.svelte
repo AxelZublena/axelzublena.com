@@ -13,6 +13,20 @@
 	export let key;
 </script>
 
+<svelte:head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RGZW9RM2W6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-RGZW9RM2W6');
+	</script>
+</svelte:head>
+
 <div
 	class="flex lg:flex-row flex-col justify-center mx-auto gap-6 lg:py-24 py-4 max-w-lg xl:max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl"
 >
