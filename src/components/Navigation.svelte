@@ -14,7 +14,8 @@
 		}
 	];
 
-	$: pageTitle = links[links.findIndex((link) => link.href == segment)].text;
+	$: linksIndex = links.findIndex((link) => link.href == segment);
+	$: pageTitle = linksIndex > -1 ? links[linksIndex].text : '';
 
 	let opened = false;
 	let style = 'hidden';
