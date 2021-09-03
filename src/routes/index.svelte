@@ -1,5 +1,9 @@
 <svelte:head>
 	<title>Home</title>
+	<meta
+		name="description"
+		content="Axel Zublena's description. What I do, what I like and how to contact me."
+	/>
 </svelte:head>
 <h1 class="text-5xl text-blue-400 pb-5">Home</h1>
 <div class="content py-2 ">

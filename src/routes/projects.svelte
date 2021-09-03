@@ -4,6 +4,10 @@
 
 <svelte:head>
 	<title>Projects</title>
+	<meta
+		name="description"
+		content="Axel Zublena's portfolio. Software and applications I worked on."
+	/>
 </svelte:head>
 
 <h1 class="text-5xl text-blue-400 pb-7">Projects</h1>
