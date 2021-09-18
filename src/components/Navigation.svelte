@@ -11,6 +11,10 @@
 		{
 			text: 'Projects',
 			href: '/projects'
+		},
+		{
+			text: 'Blog',
+			href: '/blog'
 		}
 	];
 

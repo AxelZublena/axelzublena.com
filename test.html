@@ -1,0 +1,177 @@
+<h1 id="installinstructionsforarchlinuxonefisystemswithxfsandswappartitionssystemdbootkdeplasma">Install instructions for Arch Linux on EFI systems with XFS and swap partitions + systemd-boot + KDE Plasma</h1>
+<ul>
+<li>I am using a single hard drive. </li>
+<li>The swap partition needs to be greater than or equal to the RAM installed on your computer (32G in my case).</li>
+<li>I live in Europe/Paris, I use a US keyboard and speak US english</li>
+</ul>
+<h2 id="1checkyourbiossettingsandenableuefi">1. Check your BIOS settings and enable UEFI</h2>
+<h2 id="2bootonthelatestarchlinuxiso">2. Boot on the latest Arch Linux ISO.</h2>
+<h2 id="3checkthatbootmodeisefi">3. Check that boot mode is EFI</h2>
+<pre><code class="bash language-bash">ls /sys/firmware/efi/efivars
+</code></pre>
+<p>If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS mode. </p>
+<h2 id="4checkthatthenetworkinterfacesarerecognizedinternetisworking">4. Check that the network interfaces are recognized &amp;&amp; internet is working</h2>
+<pre><code class="bash language-bash">ip link
+ping google.com
+</code></pre>
+<h2 id="5updatethesystemclockcheckutcisselectioned">5. Update the system clock &amp;&amp; check UTC is selectioned</h2>
+<pre><code class="bash language-bash">timedatectl set-ntp true
+timedatectl status
+</code></pre>
+<h2 id="6partitions">6. Partitions</h2>
+<h4 id="1listyourdiskswithfdisk">1. List your disks with <code>fdisk</code></h4>
+<pre><code class="bash language-bash">fdisk -l
+</code></pre>
+<h4 id="2runfdiskonthediskyouwanttoarchtobeinstalled">2. Run <code>fdisk</code> on the disk you want to Arch to be installed</h4>
+<pre><code class="bash language-bash">fdisk /dev/sda
+</code></pre>
+<h4 id="3createanewgptpartitiontable">3. Create a new GPT partition table</h4>
+<pre><code>In fdisk, "g" for GPT partitions table
+</code></pre>
+<h4 id="4createthefollowingpartitions">4. Create the following partitions:</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Partition</th>
+            <th>First sector</th>
+            <th>Last sector</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>/dev/sda1</td>
+            <td>default</td>
+            <td>+550M</td>
+            <td>EFI System (1)</td>
+        </tr>
+        <tr>
+            <td>/dev/sda2</td>
+            <td>default</td>
+            <td>+33G</td>
+            <td>swap (19)</td>
+        </tr>
+        <tr>
+            <td>/dev/sda3</td>
+            <td>default</td>
+            <td>default</td>
+            <td>Linux filesystem (20)</td>
+        </tr>
+    </tbody>
+</table>
+<pre><code>In fdisk, "n" for add new partition
+In fdisk, "p" for primary partition (if using MBR instead of GPT)
+In fdisk, "t" to change partition type
+</code></pre>
+<h4 id="5writethetabletothedisk">5. Write the table to the disk</h4>
+<pre><code>In fdisk, "w" (write table to disk)
+</code></pre>
+<h2 id="7formatthepartitions">7. Format the partitions</h2>
+<h4 id="1formattheefibootpartitiontofat32">1. Format the EFI boot partition to Fat32</h4>
+<pre><code class="bash language-bash">mkfs.fat -F32 /dev/sda1
+</code></pre>
+<h4 id="2formattheswappartitiontoswapandenableit">2. Format the swap partition to swap and enable it</h4>
+<pre><code class="bash language-bash">mkswap /dev/sda2
+swapon /dev/sda2
+</code></pre>
+<h4 id="3formattherootpartitiontoxfs">3. Format the root partition to XFS</h4>
+<pre><code class="bash language-bash">mkfs.xfs /dev/sda3
+</code></pre>
+<h2 id="8mountthepartitions">8. Mount the partitions</h2>
+<pre><code class="bash language-bash">mount /dev/sda3 /mnt (mount the root partition)
+
+mkdir /mnt/boot
+mount /dev/sda1 /mn/boot (mount the boot partition)
+</code></pre>
+<h2 id="9installarchwithbaseandimportantpackages">9. Install Arch with base and important packages</h2>
+<pre><code class="bash language-bash">pacstrap /mnt base base-devel linux linux-firmware amd-ucode efibootmgr dosfstools os-prober mtools pipewire pipewire-pulse xf86-video-amdgpu xorg neovim
+</code></pre>
+<p>Note: </p>
+<ul>
+<li><code>amd-ucode</code> is the microcode package for my AMD Ryzen 7 4800H, use another one if your are not using an AMD cpu.</li>
+<li><code>pipewire</code> &amp; <code>pipewire-pulse</code> are optional. I want to use Pipewire instead of PulseAudio.</li>
+<li><code>xf86-video-amdgpu</code> is the graphic driver for my APU. Change it to the one you need</li>
+<li><code>xorg</code> is required to install KDE any other DE or WM once Arch is installed</li>
+<li><code>neovim</code> is my editor of choice, but pick the one you like.</li>
+</ul>
+<h2 id="10generateanfstabfile">10. Generate an fstab file</h2>
+<p>Configure the system</p>
+<pre><code class="bash language-bash">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre>
+<h2 id="11changerootintothenewsystem">11. Change root into the new system</h2>
+<pre><code class="bash language-bash">arch-chroot /mnt
+</code></pre>
+<h2 id="12timezoneclockandlocalizationsetup">12. Time zone, clock and localization setup</h2>
+<h4 id="1timezone">1. Time zone</h4>
+<pre><code class="bash language-bash">ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+hwclock --systohc (generates /etc/adjtime)
+</code></pre>
+<h4 id="2localization">2. Localization</h4>
+<ul>
+<li>Edit <code>/etc/locale.gen</code> and uncomment <code>en_US.UTF-8 UTF-8</code>.</li>
+</ul>
+<pre><code class="bash language-bash">nvim /etc/locale.gen
+</code></pre>
+<ul>
+<li>Generate the locales by running.</li>
+</ul>
+<pre><code class="bash language-bash">locale-gen
+</code></pre>
+<ul>
+<li>Create the <code>/etc/locale.conf</code> file, and set the <code>LANG</code> variable accordingly:</li>
+</ul>
+<pre><code>LANG=en_US.UTF-8
+</code></pre>
+<h2 id="12networkconfiguration">12. Network configuration</h2>
+<h4 id="1setthehostname">1. Set the hostname:</h4>
+<pre><code>echo "axel-laptop" &gt;&gt; /etc/hostname
+</code></pre>
+<h4 id="2setthehosts">2. Set the hosts:</h4>
+<pre><code>echo "127.0.0.1    localhost" &gt;&gt; /etc/hosts
+echo "::1          localhost" &gt;&gt; /etc/hosts
+echo "127.0.1.1       axel-laptop.localdomain axel-laptop" &gt;&gt; /etc/hosts
+</code></pre>
+<h4 id="3installandenablenetworkmanager">3. Install and enable NetworkManager</h4>
+<pre><code>pacman -S networkmanager
+systemctl enable NetworkManager
+</code></pre>
+<h2 id="13userspasswordsandprivileges">13. Users, passwords and privileges</h2>
+<h4 id="1setthepasswordandcreateanewuser">1. Set the password and create a new user</h4>
+<pre><code>passwd (set root pass)
+useradd -m axelz (make another user)
+passwd axelz (set that user's password)
+usermod -aG wheel,audio,video,optical,storage axelz
+</code></pre>
+<p>`</p>
+<h4 id="2installsudoeditthesudoconfiganduncommentwheelallallall">2. Install sudo, edit the sudo config and uncomment <code>%wheel ALL=(ALL) ALL</code>.</h4>
+<pre><code>pacman -S sudo
+EDITOR=nvim visudo
+</code></pre>
+<h2 id="14bootloader">14. Bootloader</h2>
+<h4 id="1installsystemdboot">1. Install systemd-boot</h4>
+<pre><code class="bash language-bash">bootctl --path=/boot install
+</code></pre>
+<h4 id="2editbootloaderloaderconfandwritedefaultarchconf">2. Edit <code>/boot/loader/loader.conf</code> and write <code>default arch.conf</code></h4>
+<h4 id="3editbootloaderentriesarchconfandwritethefollowing">3. Edit <code>/boot/loader/entries/arch.conf</code> and write the following:</h4>
+<pre><code>title Arch Linux
+linux /vmlinuz-linux
+initrd /amd-ucode.img
+initrd /initramfs-linux.img
+options root=PARTUUID=&lt;find the PARTUUID of the root partition&gt; rw
+</code></pre>
+<ul>
+<li><code>initrd /amd-ucode.img</code> is specific to my platform (AMD cpu)</li>
+<li>use <code>blkid -s PARTUUID -o value /dev/sda3 &gt;&gt; /boot/loader/entries/arch.conf</code> to find the right PARTUUID</li>
+</ul>
+<h2 id="15unmountexitandreboot">15. Unmount, exit and reboot</h2>
+<pre><code>exit
+umount -R /mnt
+reboot
+</code></pre>
+<h2 id="16installkde">16. Install KDE</h2>
+<p>App to install:
+<code>5 13 14 21 35 44 46 58 106 124 139 142 145 154 170</code></p>
+<pre><code class="bash language-bash">sudo pacman -S plasma-meta kde-applications
+sudo systemctl enable sddm
+reboot
+</code></pre>
