@@ -23,7 +23,7 @@
 	{#each posts as post}
 		<li>
 			<a href="/blog/{post._id}">
-				{post.title}:{post.date}:{post.body}
+				{post.title}:{post.date}:{post.file.name}
 			</a>
 			<a href="/blog/{post._id}/update">
 				<button

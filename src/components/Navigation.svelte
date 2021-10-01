@@ -1,31 +1,31 @@
 <script>
-	import MenuText from './MenuText.svelte';
+	import MenuText from "./MenuText.svelte";
 
 	export let segment;
 
 	let links = [
 		{
-			text: 'Home',
-			href: '/'
+			text: "Home",
+			href: "/"
 		},
 		{
-			text: 'Projects',
-			href: '/projects'
+			text: "Projects",
+			href: "/projects"
 		},
 		{
-			text: 'Blog',
-			href: '/blog'
+			text: "Blog",
+			href: "/blog"
 		}
 	];
 
 	$: linksIndex = links.findIndex((link) => link.href == segment);
-	$: pageTitle = linksIndex > -1 ? links[linksIndex].text : '';
+	$: pageTitle = linksIndex > -1 ? links[linksIndex].text : "";
 
 	let opened = false;
-	let style = 'hidden';
+	let style = "hidden";
 	function burgerClick() {
 		opened = !opened;
-		opened ? (style = 'block') : (style = 'hidden');
+		opened ? (style = "block") : (style = "hidden");
 	}
 </script>
 

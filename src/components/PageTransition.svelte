@@ -1,8 +1,8 @@
 <script>
-	import { fly } from 'svelte/transition';
-	import Page from './Page.svelte';
+	import { fly } from "svelte/transition";
+	import Page from "./Page.svelte";
 
-	export let refresh = '';
+	export let refresh = "";
 </script>
 
 {#key refresh}

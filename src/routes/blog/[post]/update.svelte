@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ page, fetch }) {
-		const res = await fetch('/api/' + page.params.post);
+		const res = await fetch("/api/" + page.params.post);
 		const jsonRes = await res.json();
 		return {
 			props: {
@@ -11,35 +11,33 @@
 </script>
 
 <script>
-	import { goto } from '$app/navigation';
-	export let post = { title: '', date: '', body: '' };
+	import { goto } from "$app/navigation";
+	export let post = { title: "", file: { text: "", name: "" }, date: "" };
 	let title = post.title;
 	let date = post.date;
-	let body = post.body;
 
 	async function updatePost() {
 		post.title = title;
 		post.date = date;
-		post.body = body;
 		try {
-			await fetch('/api', {
-				method: 'PUT',
+			await fetch("/api", {
+				method: "PUT",
 				body: JSON.stringify(post)
 			});
-			await goto('/blog');
+			await goto("/blog");
 		} catch (err) {
-			alert('There was an error.');
+			alert("There was an error.");
 		}
 	}
 	async function deletePost() {
 		try {
-			await fetch('/api', {
-				method: 'DELETE',
+			await fetch("/api", {
+				method: "DELETE",
 				body: JSON.stringify(post)
 			});
-			await goto('/blog');
+			await goto("/blog");
 		} catch (err) {
-			alert('There was an error.');
+			alert("There was an error.");
 		}
 	}
 </script>
@@ -52,10 +50,9 @@
 <div class="grid grid-flow-row">
 	<label for="title" class="text-3xl">Title</label>
 	<input type="text" name="title" id="title" bind:value={title} placeholder="Title" />
-	<label for="body" class="text-3xl">Body</label>
-	<textarea name="body" id="body" bind:value={body} cols="30" rows="10" />
-	<label for="date" class="text-3xl">Body</label>
+	<label for="date" class="text-3xl">Date</label>
 	<input type="date" name="date" id="date" bind:value={date} />
+
 	<div>
 		<button
 			on:click={updatePost}
