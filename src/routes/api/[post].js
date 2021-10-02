@@ -6,7 +6,7 @@ export async function get(request) {
 		const id = request.params.post;
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
-		const collection = db.collection("axelzublena-blog");
+		const collection = db.collection("axelzublena-post");
 		const post = await collection.findOne({ _id: new ObjectId(id) });
 
 		return {

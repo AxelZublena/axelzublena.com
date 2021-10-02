@@ -1,5 +1,5 @@
-import preprocess from 'svelte-preprocess';
-import node from '@sveltejs/adapter-node';
+import preprocess from "svelte-preprocess";
+import node from "@sveltejs/adapter-node";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,7 +13,7 @@ const config = {
 
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
+		target: "#svelte",
 		adapter: node()
 	}
 };
@@ -21,5 +21,5 @@ const config = {
 export default config;
 // Workaround until SvelteKit uses Vite 2.3.8 (and it's confirmed to fix the Tailwind JIT problem)
 const mode = process.env.NODE_ENV;
-const dev = mode === 'development';
-process.env.TAILWIND_MODE = dev ? 'watch' : 'build';
+const dev = mode === "development";
+process.env.TAILWIND_MODE = dev ? "watch" : "build";

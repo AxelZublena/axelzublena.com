@@ -12,7 +12,7 @@ export async function get(request) {
 		const post = request.query.get("post");
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
-		const collection = db.collection("axelzublena-blog");
+		const collection = db.collection("axelzublena-post");
 		const posts = await collection.find({ post }).toArray();
 
 		return {
@@ -69,7 +69,7 @@ export async function post(request) {
 		// Connect to the DB and the right table
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
-		const collection = db.collection("axelzublena-blog");
+		const collection = db.collection("axelzublena-post");
 
 		// Insert a new post
 		await collection.insertOne(post);
@@ -94,7 +94,7 @@ export async function put(request) {
 	try {
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
-		const collection = db.collection("axelzublena-blog");
+		const collection = db.collection("axelzublena-post");
 
 		const post = JSON.parse(request.body);
 		await collection.updateOne(
@@ -122,7 +122,7 @@ export async function del(request) {
 	try {
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
-		const collection = db.collection("axelzublena-blog");
+		const collection = db.collection("axelzublena-post");
 
 		const post = JSON.parse(request.body);
 		await collection.deleteOne({ _id: new ObjectId(post._id) });
