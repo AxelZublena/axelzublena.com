@@ -1,7 +1,31 @@
+<script context="module">
+	export async function load({ session }) {
+		if (!session.user.authenticated) {
+			return {
+				status: 302,
+				redirect: "/auth/unauthorized"
+			};
+		}
+		return {
+			props: {
+				email: session.user.email
+			}
+		};
+	}
+</script>
+
 <script>
-	import MenuText from "./MenuText.svelte";
+	import MenuText from "$lib/components/MenuText.svelte";
+	import { onMount } from "svelte";
 
 	export let segment;
+	export let email;
+
+	onMount(async () => {
+		const res = await fetch("/user");
+		const user = await res.json();
+		email = user.email;
+	});
 
 	let links = [
 		{
@@ -42,6 +66,9 @@
 				{#each links as link}
 					<MenuText text={link.text} href={link.href} {segment} />
 				{/each}
+				{#if email}
+					<MenuText text="Logout" href="/home" {segment} />
+				{/if}
 			</div>
 			<div class="flex items-center sm:hidden">
 				<p class="text-3xl text-white pr-5">{pageTitle}</p>
