@@ -49,25 +49,6 @@
 		}
 	}
 
-	/*async function uploadFile(e) {*/
-		/*try {*/
-			/*const file = e.target.files[0];*/
-			/*if (file.type !== "text/markdown") {*/
-				/*throw new Error("Wrong format. Only Markdown is accepted.");*/
-			/*}*/
-			/*const fileText = await readFile(file);*/
-			/*const data = {*/
-				/*fileText: fileText,*/
-				/*fileName: file.name*/
-			/*};*/
-			/*await fetch("/api/file", {*/
-				/*method: "POST",*/
-				/*body: JSON.stringify(data)*/
-			/*});*/
-		/*} catch (err) {*/
-			/*console.error(err.message);*/
-		/*}*/
-	/*}*/
 	const readFile = (file: File) =>
 		new Promise((resolve, reject) => {
 			const reader = new FileReader();
