@@ -1,17 +1,3 @@
-<script context="module">
-	export async function load({ fetch, session }) {
-		if (!session.user.authenticated || session.user.email === undefined) {
-			return {
-				status: 302,
-				redirect: "/auth/unauthorized"
-			};
-		} else {
-			const res = await fetch("/api");
-			const jsonRes = await res.json();
-		}
-	}
-</script>
-
 <script lang="ts">
 	import { goto } from "$app/navigation";
 

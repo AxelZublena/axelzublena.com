@@ -1,6 +1,5 @@
 <script>
 	import { fly } from "svelte/transition";
-	import Page from "$lib/components/Page.svelte";
 
 	export let refresh = "";
 </script>
@@ -11,8 +10,6 @@
 		out:fly={{ y: 50, duration: 250 }}
 		class="h-full"
 	>
-		<Page>
-			<slot />
-		</Page>
+		<slot />
 	</div>
 {/key}

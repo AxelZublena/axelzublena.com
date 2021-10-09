@@ -1,9 +1,8 @@
 <script context="module">
 	export async function load({ page, fetch }) {
+		console.log(page.params.post);
 		const res = await fetch("/api/" + page.params.post);
 		const jsonRes = await res.json();
-
-		let html = jsonRes.post.file.text;
 
 		// Style code snippets
 		/*html = html.replaceAll("<code>", "<code style='color:blue'>");*/
@@ -23,6 +22,7 @@
 
 <script>
 	export let post;
+
 	$: date = new Date(post.date).toLocaleDateString("en-US", {
 		year: "numeric",
 		month: "long",

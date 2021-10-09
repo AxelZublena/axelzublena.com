@@ -19,13 +19,13 @@
 	import { onMount } from "svelte";
 
 	export let segment;
-	export let email;
+	/*export let email;*/
 
-	onMount(async () => {
-		const res = await fetch("/user");
-		const user = await res.json();
-		email = user.email;
-	});
+	/*onMount(async () => {*/
+	/*const res = await fetch("/user");*/
+	/*const user = await res.json();*/
+	/*email = user.email;*/
+	/*});*/
 
 	let links = [
 		{
@@ -66,9 +66,11 @@
 				{#each links as link}
 					<MenuText text={link.text} href={link.href} {segment} />
 				{/each}
-				{#if email}
+				<!--
+                {#if email}
 					<MenuText text="Logout" href="/home" {segment} />
 				{/if}
+                -->
 			</div>
 			<div class="flex items-center sm:hidden">
 				<p class="text-3xl text-white pr-5">{pageTitle}</p>

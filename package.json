@@ -11,8 +11,8 @@
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-node": "^1.0.0-next.36",
-		"@sveltejs/kit": "^1.0.0-next.174",
+		"@sveltejs/adapter-node": "^1.0.0-next.53",
+		"@sveltejs/kit": "^1.0.0-next.180",
 		"@typescript-eslint/eslint-plugin": "^4.29.0",
 		"@typescript-eslint/parser": "^4.29.0",
 		"autoprefixer": "^10.3.4",
@@ -41,7 +41,7 @@
 		"highlight.js": "^11.2.0",
 		"jsdom": "^17.0.0",
 		"marked": "^3.0.4",
-		"mongodb": "^4.1.1",
+		"mongodb": "^4.1.3",
 		"showdown": "^1.9.1",
 		"string-hash": "^1.1.3",
 		"uuid": "^8.3.2"
