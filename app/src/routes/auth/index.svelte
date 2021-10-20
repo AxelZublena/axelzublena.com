@@ -4,7 +4,7 @@
 	import { goto } from "$app/navigation";
 
 	function redirectToProfile() {
-		goto("/blog");
+		goto("/blog")
 	}
 </script>
 
