@@ -20,7 +20,7 @@ export async function connectToDatabase() {
 		// const mongoUrl = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
 		let mongoUrl = ""
 		if (ATLAS_CONNECTION_STRING) {
-			mongoUrl = `mongodb://${DB_HOST}:${DB_PORT}`;
+			mongoUrl = ATLAS_CONNECTION_STRING;
 		}
 		else {
 			mongoUrl = `mongodb://${DB_HOST}:${DB_PORT}`;
