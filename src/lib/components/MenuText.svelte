@@ -6,7 +6,11 @@
 	$: isSelected = () => {
 		if (segment.length === 1 && segment === href) {
 			return true;
-		} else if (segment.length > 1 && href.length > 1 && segment.includes(href)) {
+		} else if (
+			segment.length > 1 &&
+			href.length > 1 &&
+			segment.includes(href)
+		) {
 			return true;
 		} else {
 			return false;
@@ -18,8 +22,8 @@
 	<a
 		{href}
 		class={isSelected()
-			? 'current font-bold text-white mx-2 lg:text-2xl text-3xl'
-			: 'text-gray-200 hover:text-white mx-2 lg:text-xl text-2xl'}
+			? "current font-bold text-white mx-2 text-2xl sm:text-3xl xl:text-2xl"
+			: "text-gray-200 hover:text-white mx-2 text-xl sm:text-2xl xl:text-xl"}
 	>
 		{text}
 	</a>

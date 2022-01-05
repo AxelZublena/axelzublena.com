@@ -1,39 +1,45 @@
 <script lang="ts">
-	import MenuText from '$lib/components/MenuText.svelte';
+	import MenuText from "$lib/components/MenuText.svelte";
 	export let segment;
 	let links = [
 		{
-			text: 'Home',
-			href: '/'
+			text: "Home",
+			href: "/",
 		},
 		{
-			text: 'Projects',
-			href: '/projects'
+			text: "Projects",
+			href: "/projects",
 		},
 		{
-			text: 'Blog',
-			href: '/blog'
-		}
+			text: "Blog",
+			href: "/blog",
+		},
 	];
 
 	$: linksIndex = links.findIndex((link) => link.href == segment);
-	$: pageTitle = linksIndex > -1 ? links[linksIndex].text : '';
+	$: pageTitle = linksIndex > -1 ? links[linksIndex].text : "";
 
 	let opened = false;
-	let style = 'hidden';
+	let style = "hidden";
 	function burgerClick() {
 		opened = !opened;
-		opened ? (style = 'block') : (style = 'hidden');
+		opened ? (style = "block") : (style = "hidden");
 	}
 </script>
 
-<nav class="justify-self-end col-span-1 bg-01dp rounded-xl shadow-xl border-08dp border-2">
-	<div class="flex lg:flex-col items-center lg:items-start justify-between px-5 py-2 lg:py-5">
+<nav
+	class="justify-self-end col-span-1 bg-01dp rounded-xl shadow-xl border-08dp border-2"
+>
+	<div
+		class="flex xl:flex-col items-center xl:items-start justify-between px-5 py-2 xl:py-5"
+	>
 		<div>
 			<h1 class="text-4xl text-blue-400 mb-1">Axel<br />Zublena</h1>
-			<p class="text-ml text-gray-300 lg:mb-5 hidden lg:block">ICT Student</p>
+			<p class="text-ml text-gray-300 xl:mb-5 hidden sm:block">
+				ICT Student
+			</p>
 		</div>
-		<div class="hidden lg:block lg:flex-col items-start">
+		<div class="hidden sm:flex xl:block xl:flex-col">
 			{#each links as link}
 				<MenuText text={link.text} href={link.href} {segment} />
 			{/each}
@@ -72,7 +78,7 @@
 			</button>
 		</div>
 	</div>
-	<div class="{style} lg:hidden sm:flex sm:items-center p-5">
+	<div class="{style} sm:hidden p-5">
 		{#each links as link}
 			<MenuText text={link.text} href={link.href} {segment} />
 		{/each}
