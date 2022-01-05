@@ -62,17 +62,12 @@ export async function post(request) {
 
 		// Gets the title element
 		const titleDOM = dom.window.document.querySelector("h1");
-		console.log(titleDOM.innerText)
 
 		post.title = titleDOM.innerText;
 
 		// Remove the title from the HTMl text file
 		titleDOM.remove();
-		// console.log(dom.window.document.body.innerHTML)
-		// dom.window.document.querySelector("h1").remove()
-		// Update post object with the right file text (html)
-		// console.log(dom.window.document.body.innerHTML)
-		// post.file.text = dom.window.document.body.innerHTML;
+
 		post.file.text = dom.document.toString();
 
 
