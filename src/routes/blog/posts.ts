@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 import * as fs from "fs";
 import hljs from 'highlight.js';
 import { marked } from "marked";
-import { JSDOM } from 'jsdom';
+import { DOMParser, parseHTML } from "linkedom"
 
 export async function get(request) {
 	try {
@@ -57,17 +57,23 @@ export async function post(request) {
 
 		let html = marked.parse(post.file.text);
 		// Initializes HTML parser with the html text
-		const dom = new JSDOM(html);
+		const dom = parseHTML(html)
+		// const dom = new JSDOM(html);
 
 		// Gets the title element
 		const titleDOM = dom.window.document.querySelector("h1");
+		console.log(titleDOM.innerText)
 
-		post.title = titleDOM.textContent;
+		post.title = titleDOM.innerText;
 
 		// Remove the title from the HTMl text file
 		titleDOM.remove();
+		// console.log(dom.window.document.body.innerHTML)
+		// dom.window.document.querySelector("h1").remove()
 		// Update post object with the right file text (html)
-		post.file.text = dom.window.document.body.innerHTML;
+		// console.log(dom.window.document.body.innerHTML)
+		// post.file.text = dom.window.document.body.innerHTML;
+		post.file.text = dom.document.toString();
 
 
 		if (html) {
