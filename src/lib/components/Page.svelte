@@ -2,21 +2,21 @@
 	export let segment;
 	let links = [
 		{
-			text: 'Home',
-			href: '/'
+			text: "Home",
+			href: "/",
 		},
 		{
-			text: 'Projects',
-			href: '/projects'
+			text: "Projects",
+			href: "/projects",
 		},
 		{
-			text: 'Blog',
-			href: '/blog'
-		}
+			text: "Blog",
+			href: "/blog",
+		},
 	];
 
 	$: linksIndex = links.findIndex((link) => link.href == segment);
-	$: pageTitle = linksIndex > -1 ? links[linksIndex].text : '';
+	$: pageTitle = linksIndex > -1 ? links[linksIndex].text : "";
 </script>
 
 <div
@@ -27,14 +27,17 @@
 </div>
 
 <style lang="postcss">
-	/* Hide scrollbar for Chrome, Safari and Opera */
 	div::-webkit-scrollbar {
-		display: none;
+		width: 12px; /* width of the entire scrollbar */
 	}
 
-	/* Hide scrollbar for IE, Edge and Firefox */
-	div {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
+	div::-webkit-scrollbar-track {
+		background: transparent; /* color of the tracking area */
+	}
+
+	div::-webkit-scrollbar-thumb {
+		background-color: cornflowerblue; /* color of the scroll thumb */
+		border-radius: 20px; /* roundness of the scroll thumb */
+		border: 3px solid #1d1d1d; /* creates padding around scroll thumb */
 	}
 </style>

@@ -5,7 +5,7 @@ export async function handle({ request, resolve }) {
 
 	// code here happends before the endpoint or page is called
 	request.locals.user = cookies.user
-	console.log({ user: request.locals.user })
+	// console.log({ user: request.locals.user })
 
 	const response = await resolve(request)
 
@@ -17,6 +17,7 @@ export async function handle({ request, resolve }) {
 
 export async function getSession(request) {
 	return {
-		user: request.locals.user
+		user: request.locals.user,
+		loggedin: request.locals.user.login === "AxelZublena" ? true : false
 	}
 }

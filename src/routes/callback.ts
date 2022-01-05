@@ -16,7 +16,12 @@ export async function get(request) {
 	// this mutates the locals object on the request
 	// and will be read by the hooks/handle function
 	// after the resolve
-	request.locals.user = user.login
+	if (user.login == "AxelZublena") {
+		request.locals.user = user.name
+	}
+	else {
+		request.locals.user = null
+	}
 
 	return {
 		status: 302,
