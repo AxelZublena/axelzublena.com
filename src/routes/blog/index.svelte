@@ -1,17 +1,18 @@
 <script context="module">
-	export async function load({ fetch }) {
-		const res = await fetch('/blog/posts');
+	export async function load({ fetch, session }) {
+		const res = await fetch("/blog/posts");
 		const jsonRes = await res.json();
 		return {
 			props: {
-				posts: jsonRes.posts
-			}
+				posts: jsonRes.posts,
+				user: session.user,
+			},
 		};
 	}
 </script>
 
 <script>
-	/*export let user;*/
+	export let user;
 	export let posts;
 </script>
 
@@ -19,13 +20,29 @@
 	<title>Blog</title>
 </svelte:head>
 <h1 class="text-5xl text-blue-400 pb-5">Blog</h1>
-<!--
+
 {#if user}
 	<h2 class="text-2xl">
-		Hello <span class="text-blue-300">{user.name}</span>, you can create, edit and delete posts
+		Hello <span class="text-blue-300">{user.name}</span>, you can create,
+		edit and delete posts
 	</h2>
 {/if}
--->
+
+{#if user}
+	<a rel="external" href="/logout">
+		<button
+			class="bg-blue-400 hover:bg-gray-400 w-full sm:w-auto justify-center text-gray-900 font-bold p-5 rounded-xl inline-flex items-center"
+			>Logout</button
+		>
+	</a>
+{:else}
+	<a rel="external" href="/login">
+		<button
+			class="bg-blue-400 hover:bg-gray-400 w-full sm:w-auto justify-center text-gray-900 font-bold p-5 rounded-xl inline-flex items-center"
+			>Login using Github</button
+		>
+	</a>
+{/if}
 
 <ul>
 	{#each posts as post}

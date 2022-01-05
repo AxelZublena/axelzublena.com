@@ -33,10 +33,12 @@
   },
   "type": "module",
   "dependencies": {
+    "cookie": "^0.4.1",
     "dotenv": "^10.0.0",
     "highlight.js": "^11.3.1",
     "jsdom": "^18.1.1",
     "marked": "^4.0.5",
-    "mongodb": "^4.2.2"
+    "mongodb": "^4.2.2",
+    "node-fetch": "^3.1.0"
   }
 }
