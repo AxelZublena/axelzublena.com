@@ -1,8 +1,11 @@
 <script context="module">
 	export async function load({ url, session }) {
-		// if (/^\/blog\/(.*)/.test(url.pathname) && session.user === "") {
-		// 	return { redirect: "/", status: 302 };
-		// }
+		if (
+			/.*(create|update|edit|delete)/.test(url.pathname) &&
+			session.user === ""
+		) {
+			return { redirect: "/", status: 302 };
+		}
 		return {
 			props: {
 				segment: url.pathname,

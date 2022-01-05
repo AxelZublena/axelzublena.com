@@ -8,6 +8,15 @@ export async function get(request) {
 		const db = dbConnection.db;
 		const collection = db.collection("posts");
 		const post = await collection.findOne({ _id: new ObjectId(id) });
+		if (!post) {
+			console.log("no post")
+			return {
+				status: 404,
+				headers: {
+					location: '/'
+				}
+			};
+		}
 
 		return {
 			status: 200,
@@ -16,8 +25,9 @@ export async function get(request) {
 			}
 		};
 	} catch (err) {
+
 		return {
-			status: 500,
+			status: 404,
 			body: {
 				error: "Could not retrieve post",
 				message: err.message
