@@ -18,6 +18,5 @@ export async function handle({ request, resolve }) {
 export async function getSession(request) {
 	return {
 		user: request.locals.user,
-		loggedin: request.locals.user.login === "AxelZublena" ? true : false
 	}
 }
