@@ -21,9 +21,11 @@
 
 	let opened = false;
 	let style = "hidden";
+	let styleTitle = "block";
 	function burgerClick() {
 		opened = !opened;
 		opened ? (style = "block") : (style = "hidden");
+		opened ? (styleTitle = "hidden") : (styleTitle = "block");
 	}
 </script>
 
@@ -34,7 +36,9 @@
 		class="flex xl:flex-col items-center xl:items-start justify-between px-5 py-2 xl:py-5"
 	>
 		<div>
-			<h1 class="text-4xl text-blue-400 mb-1">Axel<br />Zublena</h1>
+			<h1 class="text-2xl sm:text-4xl text-blue-400 mb-1">
+				Axel<br />Zublena
+			</h1>
 			<p class="text-ml text-gray-300 xl:mb-5 hidden sm:block">
 				ICT Student
 			</p>
@@ -43,14 +47,9 @@
 			{#each links as link}
 				<MenuText text={link.text} href={link.href} {segment} />
 			{/each}
-			<!--
-                {#if email}
-					<MenuText text="Logout" href="/home" {segment} />
-				{/if}
-                -->
 		</div>
-		<div class="flex items-center sm:hidden">
-			<p class="text-3xl text-white pr-5">{pageTitle}</p>
+		<div class="flex items-center sm:hidden justify-end">
+			<p class="{styleTitle} text-xl text-white pr-2">{pageTitle}</p>
 			<button on:click={burgerClick}>
 				<svg
 					id="openBurger"
@@ -78,7 +77,7 @@
 			</button>
 		</div>
 	</div>
-	<div class="{style} sm:hidden p-5">
+	<div class="{style} sm:hidden pb-5  flex justify-center">
 		{#each links as link}
 			<MenuText text={link.text} href={link.href} {segment} />
 		{/each}

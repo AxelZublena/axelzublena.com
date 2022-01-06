@@ -19,6 +19,7 @@ export async function get(request) {
 			}
 		};
 	} catch (err) {
+		console.log("things happens here")
 		return {
 			status: 500,
 			body: {

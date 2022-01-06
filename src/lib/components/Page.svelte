@@ -21,7 +21,7 @@
 
 <div
 	id="content"
-	class="overflow-y-scroll p-10 bg-01dp rounded-xl shadow-xl border-08dp border-2 max-h-full"
+	class="overflow-y-scroll p-5 sm:p-10 bg-01dp rounded-xl shadow-xl border-08dp border-2 max-h-full"
 >
 	<slot />
 </div>
