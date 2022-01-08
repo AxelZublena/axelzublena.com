@@ -24,8 +24,12 @@
 
 <svelte:head>
 	<title>Blog</title>
+	<meta
+		name="description"
+		content="Blog: articles/blog posts that might help you."
+	/>
 </svelte:head>
-<!-- <h1 class="text-5xl text-blue-400 pb-5">Blog</h1> -->
+
 <p class="text-blue-400 text-3xl pb-5">Blog posts that might help you</p>
 
 {#if user}

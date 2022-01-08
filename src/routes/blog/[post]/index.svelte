@@ -23,6 +23,7 @@
 
 <svelte:head>
 	<title>Blog - {post.title}</title>
+	<meta name="description" content={post.title} />
 </svelte:head>
 
 <h1 class="text-4xl text-blue-400 text-center pb-5">{post.title}</h1>
