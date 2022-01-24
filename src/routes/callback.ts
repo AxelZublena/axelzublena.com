@@ -8,8 +8,8 @@ const userURL = 'https://api.github.com/user'
 const { VITE_CLIENT_ID, VITE_CLIENT_SECRET } = process.env;
 
 
-export async function get(request) {
-	const code = request.url.searchParams.get("code");
+export async function get({ locals, url }) {
+	const code = url.searchParams.get("code");
 	const accessToken = await getAccessToken(code)
 	const user: any = await getUser(accessToken)
 
@@ -17,10 +17,10 @@ export async function get(request) {
 	// and will be read by the hooks/handle function
 	// after the resolve
 	if (user.login == "AxelZublena") {
-		request.locals.user = user.name
+		locals.user = user.name
 	}
 	else {
-		request.locals.user = null
+		locals.user = null
 	}
 
 	return {

@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 import * as fs from "fs";
 import hljs from 'highlight.js';
 import { marked } from "marked";
-import { DOMParser, parseHTML } from "linkedom"
+import { parseHTML } from "linkedom"
 
 export async function get(request) {
 	try {
@@ -19,7 +19,6 @@ export async function get(request) {
 			}
 		};
 	} catch (err) {
-		console.log("things happens here")
 		return {
 			status: 500,
 			body: {
@@ -30,10 +29,10 @@ export async function get(request) {
 	}
 }
 
-export async function post(request) {
+export async function post({ request }) {
 	try {
 		// Parses the request body
-		const post = JSON.parse(request.body);
+		const post = await request.json()
 
 		marked.setOptions({
 			highlight: function(code) {
@@ -91,11 +90,12 @@ export async function post(request) {
 		}
 
 	} catch (err) {
+		console.log(err)
 		return {
 			status: 500,
 			body: {
 				error: "A server error occured",
-				message: err
+				message: err.message
 			}
 		};
 	}

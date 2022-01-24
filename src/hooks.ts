@@ -1,22 +1,21 @@
 import cookie from 'cookie'
 
-export async function handle({ request, resolve }) {
-	const cookies = cookie.parse(request.headers.cookie || JSON.stringify({ user: null }));
+export async function handle({ event, resolve }) {
+	const cookies = cookie.parse(event.request.headers.get('cookie') || JSON.stringify({ user: null }));
 
 	// code here happends before the endpoint or page is called
-	request.locals.user = cookies.user
-	// console.log({ user: request.locals.user })
+	event.locals.user = cookies.user
 
-	const response = await resolve(request)
+	const response = await resolve(event)
 
 	// code here happens after the endpoint or page is called
-	response.headers['set-cookie'] = `user=${request.locals.user || ''}; Path=/; HttpOnly`
+	response.headers.set('set-cookie', `user=${event.locals.user || ''}; Path=/; HttpOnly`)
 
 	return response
 }
 
-export async function getSession(request) {
+export async function getSession({ locals }) {
 	return {
-		user: request.locals.user,
+		user: locals.user,
 	}
 }
