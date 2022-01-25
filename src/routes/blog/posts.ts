@@ -100,13 +100,13 @@ export async function post({ request }) {
 		};
 	}
 }
-export async function put(request) {
+export async function put({ request }) {
 	try {
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
 		const collection = db.collection("posts");
 
-		const post = JSON.parse(request.body);
+		const post = await request.json()
 		await collection.updateOne(
 			{ _id: new ObjectId(post._id) },
 			{ $set: { title: post.title, date: post.date, body: post.body } }
@@ -128,13 +128,13 @@ export async function put(request) {
 		};
 	}
 }
-export async function del(request) {
+export async function del({ request }) {
 	try {
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
 		const collection = db.collection("posts");
 
-		const post = JSON.parse(request.body);
+		const post = await request.json()
 		await collection.deleteOne({ _id: new ObjectId(post._id) });
 
 		return {
