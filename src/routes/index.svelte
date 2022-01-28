@@ -1,3 +1,7 @@
+<script>
+	import DownloadButton from "$lib/components/DownloadButton.svelte";
+</script>
+
 <svelte:head>
 	<title>Home</title>
 	<meta
@@ -38,46 +42,45 @@
 	</div>
 </div>
 <div class="pt-5">
-	<h2 class="text-2xl sm:text-3xl pb-3">Contact &amp; CV</h2>
 	<div class="grid grid-flow-row md:grid-flow-col gap-5">
-		<div class="flex-none">
-			<p class="text-lg sm:text-xl">
-				<span class="text-blue-300">Email</span>: axel.zublena@gmail.com
-			</p>
-			<p class="text-lg sm:text-xl">
-				<span class="text-blue-300">Linkedin</span>:
-				<a href="https://www.linkedin.com/in/axel-zublena"
-					>www.linkedin.com/in/axel-zublena</a
-				>
-			</p>
-			<p class="text-lg sm:text-xl">
-				<span class="text-blue-300">Phone France</span>: +33 7 69 75 39
-				08
-			</p>
-			<p class="text-lg sm:text-xl">
-				<span class="text-blue-300">Phone Netherlands</span>: +31 6 45
-				45 81 52
-			</p>
-		</div>
-		<div class="flex-none">
-			<a href="/cv.pdf" download="AxelZublenaCV.pdf"
-				><button
-					class="bg-blue-400 hover:bg-gray-400 w-full sm:w-auto justify-center text-gray-900 font-bold p-5 rounded-xl inline-flex items-center"
-					><svg
-						class="h-8 w-8"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						><path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-						/></svg
+		<div>
+			<h2 class="text-2xl sm:text-3xl pb-3">Contact</h2>
+			<div class="flex-none">
+				<p class="text-lg sm:text-xl">
+					<span class="text-blue-300">Email</span>:
+					axel.zublena@gmail.com
+				</p>
+				<p class="text-lg sm:text-xl">
+					<span class="text-blue-300">Linkedin</span>:
+					<a href="https://www.linkedin.com/in/axel-zublena"
+						>www.linkedin.com/in/axel-zublena</a
 					>
-					<span>Download my CV</span></button
-				></a
-			>
+				</p>
+				<p class="text-lg sm:text-xl">
+					<span class="text-blue-300">Phone France</span>: +33 7 69 75
+					39 08
+				</p>
+				<p class="text-lg sm:text-xl">
+					<span class="text-blue-300">Phone Netherlands</span>: +31 6
+					45 45 81 52
+				</p>
+			</div>
+		</div>
+
+		<div>
+			<h2 class="text-2xl sm:text-3xl pb-3">Curriculum vitae</h2>
+			<div class="grid grid-flow-row gap-2">
+				<DownloadButton
+					fileURL="/AxelZublenaCV-EU.pdf"
+					fileName="AxelZublenaCV-EU.pdf"
+					text="Download EU CV"
+				/>
+				<DownloadButton
+					fileURL="/AxelZublenaCV-US.pdf"
+					fileName="AxelZublenaCV-US.pdf"
+					text="Download US CV"
+				/>
+			</div>
 		</div>
 	</div>
 </div>
