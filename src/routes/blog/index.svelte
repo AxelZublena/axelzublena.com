@@ -47,7 +47,7 @@
 			<a href="/blog/{post._id}">
 				<div>
 					<h3 class="text-blue-400 text-2xl">{post.title}</h3>
-					<p>
+					<p class="text-white">
 						{new Date(post.date).toLocaleDateString(
 							"en-US",
 							options

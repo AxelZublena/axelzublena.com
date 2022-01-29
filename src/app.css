@@ -15,14 +15,99 @@ h2{
 h3{
 	@apply text-lg;
 }
-/* h4{ */
-/* 	@apply text-lg; */
-/* } */
 a{
 	@apply text-blue-400;
 }
 
+.post p{
+	margin-top: 0;
+    margin-bottom: 16px;
+}
+.post h2{
+	margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
 
+	padding-bottom: 0.3em;
+    font-size: 1.5em;
+}
+.post h3{
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    font-size: 1.25em;
+}
+.post h4{
+	margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    font-size: 1em;
+}
+.post h5{
+	margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+.post table{
+	display: block;
+    width: 100%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+	border-spacing: 0;
+    border-collapse: collapse;
+	margin-top: 0;
+    margin-bottom: 16px;
+	text-indent: initial;
+}
+.post thead{
+	display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+	@apply text-blue-400;
+}
+.post table tr{
+	display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.post table th{
+	border: 1px solid rgb(229 231 235);
+	padding: 6px 13px;
+	font-weight: 600;
+	display: table-cell;
+    vertical-align: inherit;
+    text-align: -internal-center;
+}
+.post tbody{
+	display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.post table td{
+	border: 1px solid rgb(229 231 235);
+	padding: 6px 13px;
+	display: table-cell;
+    vertical-align: inherit;
+    text-align: -internal-center;
+}
+.post ul{
+	padding-left: 2em;
+	margin-top: 0;
+	margin-bottom: 16px;
+	@apply list-disc;
+}
+.post li{
+	display: list-item;
+    text-align: -webkit-match-parent;
+	margin-top: 0.25em;
+}
 
 
 code{
@@ -32,7 +117,7 @@ code{
 	padding-bottom: 0.1em;
 	padding-left: 0.4em;
 	padding-right: 0.4em;
-	margin: 0.5em;
+	/* margin: 0.5em; */
 	text-align: justify;
 	@apply rounded-xl shadow-xl border-08dp border-2;
 }
@@ -40,13 +125,26 @@ pre code.hljs {
 	display: block;
 	overflow-x: auto;
 	padding: 1em;
+	margin-bottom: 1em;
 	@apply rounded-xl shadow-xl border-08dp border-2;
 }
+
+pre code.hljs::-webkit-scrollbar {
+	width: 12px; /* width of the entire scrollbar */
+}
+
+pre code.hljs::-webkit-scrollbar-track {
+	background: transparent; /* color of the tracking area */
+}
+
+pre code.hljs::-webkit-scrollbar-thumb {
+	background-color: cornflowerblue; /* color of the scroll thumb */
+	border-radius: 20px; /* roundness of the scroll thumb */
+	border: 3px solid #1d1d1d; /* creates padding around scroll thumb */
+}
+
 code.hljs {
 	padding: 3px 5px;
-}
-ul {
-	@apply list-disc pl-5;
 }
 .hljs {
 	background: #222;

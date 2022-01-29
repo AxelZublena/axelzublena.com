@@ -4,11 +4,11 @@
 -   The swap partition needs to be greater than or equal to the RAM installed on your computer (32G in my case).
 -   I live in Europe/Paris, I use a US keyboard and speak US english
 
-## 1. Check your BIOS settings and enable UEFI
+### 1. Check your BIOS settings and enable UEFI
 
-## 2. Boot on the latest Arch Linux ISO.
+### 2. Boot on the latest Arch Linux ISO.
 
-## 3. Check that boot mode is EFI
+### 3. Check that boot mode is EFI
 
 ```bash
 ls /sys/firmware/efi/efivars
@@ -16,21 +16,21 @@ ls /sys/firmware/efi/efivars
 
 If the command shows the directory without error, then the system is booted in UEFI mode. If the directory does not exist, the system may be booted in BIOS mode.
 
-## 4. Check that the network interfaces are recognized && internet is working
+###  4. Check that the network interfaces are recognized && internet is working
 
 ```bash
 ip link
 ping google.com
 ```
 
-## 5. Update the system clock && check UTC is selectioned
+###  5. Update the system clock && check UTC is selectioned
 
 ```bash
 timedatectl set-ntp true
 timedatectl status
 ```
 
-## 6. Partitions
+###  6. Partitions
 
 #### 1. List your disks with `fdisk`
 
@@ -95,7 +95,7 @@ In fdisk, "t" to change partition type
 In fdisk, "w" (write table to disk)
 ```
 
-## 7. Format the partitions
+###  7. Format the partitions
 
 #### 1. Format the EFI boot partition to Fat32
 
@@ -116,7 +116,7 @@ swapon /dev/sda2
 mkfs.xfs /dev/sda3
 ```
 
-## 8. Mount the partitions
+###  8. Mount the partitions
 
 ```bash
 mount /dev/sda3 /mnt (mount the root partition)
@@ -125,7 +125,7 @@ mkdir /mnt/boot
 mount /dev/sda1 /mn/boot (mount the boot partition)
 ```
 
-## 9. Install Arch with base and important packages
+###  9. Install Arch with base and important packages
 
 ```bash
 pacstrap /mnt base base-devel linux linux-firmware amd-ucode efibootmgr dosfstools os-prober mtools pipewire pipewire-pulse xf86-video-amdgpu xorg neovim
@@ -139,7 +139,7 @@ Note:
 -   `xorg` is required to install KDE any other DE or WM once Arch is installed
 -   `neovim` is my editor of choice, but pick the one you like.
 
-## 10. Generate an fstab file
+###  10. Generate an fstab file
 
 Configure the system
 
@@ -147,13 +147,13 @@ Configure the system
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-## 11. Change root into the new system
+###  11. Change root into the new system
 
 ```bash
 arch-chroot /mnt
 ```
 
-## 12. Time zone, clock and localization setup
+###  12. Time zone, clock and localization setup
 
 #### 1. Time zone
 
@@ -182,7 +182,7 @@ locale-gen
 LANG=en_US.UTF-8
 ```
 
-## 12. Network configuration
+###  12. Network configuration
 
 #### 1. Set the hostname:
 
@@ -205,7 +205,7 @@ pacman -S networkmanager
 systemctl enable NetworkManager
 ```
 
-## 13. Users, passwords and privileges
+###  13. Users, passwords and privileges
 
 #### 1. Set the password and create a new user
 
@@ -223,7 +223,7 @@ pacman -S sudo
 EDITOR=nvim visudo
 ```
 
-## 14. Bootloader
+###  14. Bootloader
 
 #### 1. Install systemd-boot
 
@@ -246,7 +246,7 @@ options root=PARTUUID=<find the PARTUUID of the root partition> rw
 -   `initrd /amd-ucode.img` is specific to my platform (AMD cpu)
 -   use `blkid -s PARTUUID -o value /dev/sda3 >> /boot/loader/entries/arch.conf` to find the right PARTUUID
 
-## 15. Unmount, exit and reboot
+###  15. Unmount, exit and reboot
 
 ```bash
 exit
@@ -254,7 +254,7 @@ umount -R /mnt
 reboot
 ```
 
-## 16. Install KDE
+###  16. Install KDE
 
 App to install:
 `5 13 14 21 35 44 46 58 106 124 139 142 145 154 170`
@@ -265,13 +265,13 @@ sudo systemctl enable sddm
 reboot
 ```
 
-## 17. Add bluetooth
+###  17. Add bluetooth
 
 ```bash
 sudo pacman -S bluez bluez-utils
 ```
 
-## 18. Enable TRIM on SSD
+###  18. Enable TRIM on SSD
 
 Enables TRIM for SSD. TRIM will be executed every week, starting when you run the following command.
 

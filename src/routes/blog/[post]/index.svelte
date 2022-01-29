@@ -27,4 +27,7 @@
 </svelte:head>
 
 <h1 class="text-4xl text-blue-400 text-center pb-5">{post.title}</h1>
-<div>{@html post.file.text}</div>
+<div class="post">{@html post.file.text}</div>
+
+<style lang="postcss">
+</style>
