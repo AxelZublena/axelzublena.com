@@ -23,6 +23,22 @@
 	export let segment: string;
 </script>
 
+<svelte:head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script
+		async
+		src="https://www.googletagmanager.com/gtag/js?id=G-RGZW9RM2W6"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-RGZW9RM2W6");
+	</script>
+</svelte:head>
+
 <div class="flex h-screen xl:overflow-hidden font-ubuntu ">
 	<div
 		class="flex flex-col xl:flex-row m-auto h-screen w-screen xl:w-auto overflow-hidden px-6"
