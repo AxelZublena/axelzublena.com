@@ -46,21 +46,28 @@
 		<div>
 			<h2 class="text-2xl sm:text-3xl pb-3">Contact</h2>
 			<div class="flex-none">
-				<p class="text-lg sm:text-xl">
+				<p class="text-lg sm:text-lg">
 					<span class="text-blue-300">Email</span>:
 					axel.zublena@gmail.com
 				</p>
-				<p class="text-lg sm:text-xl">
+				<p class="text-lg sm:text-lg">
 					<span class="text-blue-300">Linkedin</span>:
-					<a href="https://www.linkedin.com/in/axel-zublena"
-						>www.linkedin.com/in/axel-zublena</a
+					<a
+						href="https://www.linkedin.com/in/axel-zublena"
+						target="_blank">www.linkedin.com/in/axel-zublena</a
 					>
 				</p>
-				<p class="text-lg sm:text-xl">
+				<p class="text-lg sm:text-lg">
+					<span class="text-blue-300">GitHub</span>:
+					<a href="https://github.com/AxelZublena" target="_blank"
+						>github.com/AxelZublena</a
+					>
+				</p>
+				<p class="text-lg sm:text-lg">
 					<span class="text-blue-300">Phone France</span>: +33 7 69 75
 					39 08
 				</p>
-				<p class="text-lg sm:text-xl">
+				<p class="text-lg sm:text-lg">
 					<span class="text-blue-300">Phone Netherlands</span>: +31 6
 					45 45 81 52
 				</p>
@@ -68,7 +75,7 @@
 		</div>
 
 		<div>
-			<h2 class="text-2xl sm:text-3xl pb-3">Curriculum vitae</h2>
+			<h2 class="text-2xl sm:text-3xl pb-5">Curriculum vitae</h2>
 			<div class="grid grid-flow-row gap-2">
 				<DownloadButton
 					fileURL="/AxelZublenaCV-EU.pdf"

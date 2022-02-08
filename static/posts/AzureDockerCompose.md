@@ -8,8 +8,7 @@ Deploying an application with every containers/services in 1 unique repository w
 * **Azure CLI** - You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete the Azure CLI steps. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 * **Azure container registry** - If you don't have one, create an Azure container registry in the Basic tier using the [Azure CLI](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli), [Azure portal](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal), or other methods. Take note of the resource group used for the deployment, which is used for the GitHub workflow.
 
-## Context
-
+## File Structure
 ```bash
 ├── docker-compose-prod.yml
 ├── docker-compose.yml
@@ -24,7 +23,11 @@ Deploying an application with every containers/services in 1 unique repository w
 ```
 ## Docker Compose configurations
 
-### Development config
+### Architecture
+The project is composed of 2 services which connect to a MongoDB database. Therefore, the Docker Compose configuration will be composed of 3 services.
+
+### Development configuration
+Below is an example of configuration for a development environment called `docker-compose.yml`. You should have somethig similar.
 ```yaml
 services:
   Service1:
@@ -72,7 +75,9 @@ volumes:
   db_vol: 
 ```
 
-### Production config
+### Production configuration
+Below is an example of configuration for a production environment called `docker-compose-prod.yml`. You should have somethig similar.
+Compared to the development configuration, the production configuration does not build  images, but specifies the URI of the images. Also, some environment variable are hardcoded.
 ```yaml
 services:
   Service1:
