@@ -54,13 +54,16 @@
 					<span class="text-blue-300">Linkedin</span>:
 					<a
 						href="https://www.linkedin.com/in/axel-zublena"
-						target="_blank">www.linkedin.com/in/axel-zublena</a
+						target="_blank"
+						rel="noreferrer">www.linkedin.com/in/axel-zublena</a
 					>
 				</p>
 				<p class="text-lg sm:text-lg">
 					<span class="text-blue-300">GitHub</span>:
-					<a href="https://github.com/AxelZublena" target="_blank"
-						>github.com/AxelZublena</a
+					<a
+						href="https://github.com/AxelZublena"
+						target="_blank"
+						rel="noreferrer">github.com/AxelZublena</a
 					>
 				</p>
 				<p class="text-lg sm:text-lg">

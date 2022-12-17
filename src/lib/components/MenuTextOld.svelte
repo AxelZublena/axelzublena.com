@@ -3,7 +3,7 @@
 	export let href;
 	export let segment;
 
-	/* $: console.log(`segment = ${segment} \nhref = ${href}`); */
+	$: console.log(`segment = ${segment} \nhref = ${href}`);
 
 	$: isSelected = () => {
 		if (segment.length === 1 && segment === href) {
@@ -27,6 +27,8 @@
 			? "current font-bold text-white mx-2 text-2xl sm:text-3xl xl:text-2xl"
 			: "text-gray-200 hover:text-white mx-2 text-xl sm:text-2xl xl:text-xl"}
 	>
+		<!-- <a> -->
 		{text}
+		<!-- </a> -->
 	</a>
 </div>

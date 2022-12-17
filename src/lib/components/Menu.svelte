@@ -1,6 +1,7 @@
 <script lang="ts">
 	import MenuText from "$lib/components/MenuText.svelte";
-	export let segment;
+	export let segment: string;
+
 	let links = [
 		{
 			text: "Home",
@@ -77,7 +78,7 @@
 			</button>
 		</div>
 	</div>
-	<div class="{style} sm:hidden pb-5  flex justify-center">
+	<div class="{style} sm:hidden pb-5 flex justify-center">
 		{#each links as link}
 			<MenuText text={link.text} href={link.href} {segment} />
 		{/each}

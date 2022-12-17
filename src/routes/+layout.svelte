@@ -1,33 +1,19 @@
-<script context="module">
-	export async function load({ url, session }) {
-		if (
-			/.*(create|update|edit|delete)/.test(url.pathname) &&
-			session.user === ""
-		) {
-			return { redirect: "/", status: 302 };
-		}
-		return {
-			props: {
-				segment: url.pathname,
-			},
-		};
-	}
-</script>
-
 <script lang="ts">
 	import "../app.css";
 	import Menu from "$lib/components/Menu.svelte";
 	import Page from "$lib/components/Page.svelte";
 	import Transition from "$lib/components/Transition.svelte";
 
-	export let segment: string;
+	export let data: any;
+	$: segment = data.segment;
 </script>
 
 <svelte:head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script
 		async
-		src="https://www.googletagmanager.com/gtag/js?id=G-RGZW9RM2W6"></script>
+		src="https://www.googletagmanager.com/gtag/js?id=G-RGZW9RM2W6"
+	></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() {

@@ -1,18 +1,9 @@
-<script context="module">
-	export async function load({ params, fetch }) {
-		const res = await fetch('/blog/' + params.post + '/get');
-		const jsonRes = await res.json();
-		return {
-			props: {
-				post: jsonRes.post
-			}
-		};
-	}
-</script>
-
 <script>
-	import { goto } from '$app/navigation';
-	export let post = { title: '', file: { text: '', name: '' }, date: '' };
+	export let data;
+
+	import { goto } from "$app/navigation";
+	/* export let post = { title: "", file: { text: "", name: "" }, date: "" }; */
+	let post = data;
 	let title = post.title;
 	let date = post.date;
 
@@ -20,24 +11,24 @@
 		post.title = title;
 		post.date = date;
 		try {
-			await fetch('/blog/posts', {
-				method: 'PUT',
-				body: JSON.stringify(post)
+			await fetch("/blog", {
+				method: "PUT",
+				body: JSON.stringify(post),
 			});
-			await goto('/blog');
+			await goto("/blog");
 		} catch (err) {
-			alert('There was an error.');
+			alert("There was an error.");
 		}
 	}
 	async function deletePost() {
 		try {
-			await fetch('/blog/posts', {
-				method: 'DELETE',
-				body: JSON.stringify(post)
+			await fetch("/blog", {
+				method: "DELETE",
+				body: JSON.stringify(post),
 			});
-			await goto('/blog');
+			await goto("/blog");
 		} catch (err) {
-			alert('There was an error.');
+			alert("There was an error.");
 		}
 	}
 </script>
@@ -58,7 +49,13 @@
 		placeholder="Title"
 	/>
 	<label for="date" class="text-3xl">Date</label>
-	<input type="date" name="date" id="date" class="text-black" bind:value={date} />
+	<input
+		type="date"
+		name="date"
+		id="date"
+		class="text-black"
+		bind:value={date}
+	/>
 
 	<div>
 		<button

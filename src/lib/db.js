@@ -18,6 +18,7 @@ export async function connectToDatabase() {
 	}
 	if (!cached.promise) {
 		// const mongoUrl = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
+		// const mongoUrl = "mongodb://localhost:27017"
 		let mongoUrl = ""
 		if (ATLAS_CONNECTION_STRING) {
 			mongoUrl = ATLAS_CONNECTION_STRING;

@@ -111,6 +111,7 @@
 				href="https://{link_github}"
 				target="_blank"
 				class="text-white font-normal"
+				rel="noreferrer"
 			>
 				{link_github}
 			</a>

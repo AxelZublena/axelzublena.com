@@ -1,35 +1,33 @@
 import { connectToDatabase } from "$lib/db";
 import { ObjectId } from "mongodb";
-import * as fs from "fs";
 import hljs from 'highlight.js';
 import { marked } from "marked";
 import { parseHTML } from "linkedom"
+import { json } from '@sveltejs/kit';
 
-export async function get(request) {
+export async function GET({ request }) {
 	try {
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
 		const collection = db.collection("posts");
 		const posts = await collection.find({}).toArray();
 
-		return {
+		return json({
 			status: 200,
-			body: {
-				posts
-			}
-		};
+			posts
+		})
 	} catch (err) {
-		return {
+		return json({
 			status: 500,
 			body: {
 				error: "A server error occured",
 				message: err
 			}
-		};
+		});
 	}
 }
 
-export async function post({ request }) {
+export async function POST({ request }) {
 	try {
 		// Parses the request body
 		const post = await request.json()
@@ -81,26 +79,26 @@ export async function post({ request }) {
 			// Insert a new post
 			await collection.insertOne(post);
 
-			return {
+			return json({
 				status: 200,
 				body: {
 					status: "Success"
 				}
-			};
+			});
 		}
 
 	} catch (err) {
 		console.log(err)
-		return {
+		return json({
 			status: 500,
 			body: {
 				error: "A server error occured",
 				message: err.message
 			}
-		};
+		});
 	}
 }
-export async function put({ request }) {
+export async function PUT({ request }) {
 	try {
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
@@ -112,23 +110,23 @@ export async function put({ request }) {
 			{ $set: { title: post.title, date: post.date, body: post.body } }
 		);
 
-		return {
+		return json({
 			status: 200,
 			body: {
 				status: "Success"
 			}
-		};
+		});
 	} catch (err) {
-		return {
+		return json({
 			status: 500,
 			body: {
 				error: "A server error occured",
 				message: err
 			}
-		};
+		});
 	}
 }
-export async function del({ request }) {
+export async function DELETE({ request }) {
 	try {
 		const dbConnection = await connectToDatabase();
 		const db = dbConnection.db;
@@ -137,19 +135,19 @@ export async function del({ request }) {
 		const post = await request.json()
 		await collection.deleteOne({ _id: new ObjectId(post._id) });
 
-		return {
+		return json({
 			status: 200,
 			body: {
 				status: "Success"
 			}
-		};
+		});
 	} catch (err) {
-		return {
+		return json({
 			status: 500,
 			body: {
 				error: "A server error occured",
 				message: err
 			}
-		};
+		});
 	}
 }

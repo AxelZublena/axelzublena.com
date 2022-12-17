@@ -1,44 +1,44 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import { goto } from "$app/navigation";
 
-	let title = '';
-	let date = '';
+	let title = "";
+	let date = "";
 	let files: FileList;
 
 	async function createPost() {
 		try {
 			const file = files[0];
 
-			if (file.type !== 'text/markdown') {
-				throw new Error('Wrong format. Only Markdown is accepted.');
+			if (file.type !== "text/markdown") {
+				throw new Error("Wrong format. Only Markdown is accepted.");
 			}
 
 			const fileText = await readFile(file);
 			const post = {
 				file: {
 					text: fileText,
-					name: file.name
+					name: file.name,
 				},
-				date
+				date,
 			};
 
-			await fetch('/blog/posts', {
-				method: 'POST',
-				body: JSON.stringify(post)
+			await fetch("/blog", {
+				method: "POST",
+				body: JSON.stringify(post),
 			});
-			await goto('/blog');
+			await goto("/blog");
 		} catch (err) {
 			console.error(err.message);
-			title = '';
-			(document.getElementById('file') as HTMLInputElement).value = '';
-			date = '';
+			title = "";
+			(document.getElementById("file") as HTMLInputElement).value = "";
+			date = "";
 		}
 	}
 
 	const readFile = (file: File) =>
 		new Promise((resolve, reject) => {
 			const reader = new FileReader();
-			reader.readAsText(file, 'utf-8');
+			reader.readAsText(file, "utf-8");
 			reader.onload = () => resolve(reader.result);
 			reader.onerror = (error) => reject(error);
 		});
@@ -53,7 +53,13 @@
 	<label for="file" class="text-3xl">File</label>
 	<input type="file" id="file" name="file" class="text-black" bind:files />
 	<label for="date" class="text-3xl">Date</label>
-	<input type="date" name="date" id="date" class="text-black" bind:value={date} />
+	<input
+		type="date"
+		name="date"
+		id="date"
+		class="text-black"
+		bind:value={date}
+	/>
 	<button
 		on:click={createPost}
 		class="bg-blue-400 hover:bg-gray-400 w-full sm:w-auto justify-center text-gray-900 font-bold p-5 rounded-xl inline-flex items-center"
