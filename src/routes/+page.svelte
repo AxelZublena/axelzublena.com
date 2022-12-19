@@ -21,23 +21,24 @@
 	<div class="text-justify">
 		<h2 class="text-2xl sm:text-3xl pb-3">About me</h2>
 		<p class="text-justify mb-3">
-			Hi! I&#39;m a 2nd-year student at HZ University of Applied Sciences.
-			I&#39;m studying ICT (Information and Communication Technologies),
-			majoring in software engineering. After I obtained my high school
-			diploma in France, I decided to go abroad to pursue a bachelor in
-			the Netherlands.
+			Hi! I'm a 3nd-year student at HZ University of Applied Sciences. I'm
+			studying ICT (Information and Communication Technologies), majoring
+			in software engineering. After I obtained my high school diploma in
+			France, I decided to go abroad to do a bachelor in the Netherlands.
 		</p>
 		<p class="text-justify">
-			Since middle school, I&#39;ve tried almost every facet of computer
-			science: programming (C/C++ with Arduino, Python, C#, Java,
-			Javascript, and many more), data science (Machine Learning
-			algorithms, Deep Learning with TensorFlow,...), game development
-			(Unreal Engine and Unity), operating systems (Linux and Windows) and
-			cyber security. <br />Nowadays, I like to learn how to create web
-			applications with PHP (Laravel) and Javascript/TypeScript (mainly
-			Svelte with NodeJS). I also really enjoy working with Linux, Docker
-			containers and all the tasks related to DevOps (CI/CD, deploying an
-			app (SSL certificates, Nginx/Apache), ...).
+			Since I started my studies, I've had the opportunity to learn web
+			development and data science. After learning the fundamentals of
+			CI/CD, I became passionate about cloud technologies. I am an AWS
+			Certified Cloud Practitioner and can deploy CI/CD pipelines with
+			Microsoft's Azure. <br /> Recently, I completed a cybersecurity
+			minor at Anderson University in South Carolina, USA. During this
+			semester I was able to learn the fundamentals of cybersecurity.
+			Taking part in the National Cyber League Fall game allowed me to use
+			my acquired knowledge in web development, cloud and cybersecurity.
+			<br /> Finally, I've worked on many meaningful projects applying the
+			Agile methodology. I like understanding the needs of stakeholders, translating
+			them into pertinent solutions and developing them.
 		</p>
 	</div>
 </div>
@@ -78,18 +79,40 @@
 		</div>
 
 		<div>
-			<h2 class="text-2xl sm:text-3xl pb-5">Curriculum vitae</h2>
-			<div class="grid grid-flow-row gap-2">
-				<DownloadButton
-					fileURL="/AxelZublenaCV-EU.pdf"
-					fileName="AxelZublenaCV-EU.pdf"
-					text="Download EU CV"
-				/>
-				<DownloadButton
-					fileURL="/AxelZublenaCV-US.pdf"
-					fileName="AxelZublenaCV-US.pdf"
-					text="Download US CV"
-				/>
+			<h2 class="text-2xl sm:text-3xl pb-3">More</h2>
+			<div class="flex-none">
+				<p class="text-lg sm:text-lg">
+					<span class="text-blue-300">Certification</span>:
+					<a
+						href="https://www.credly.com/earner/earned/share/9246d2ea-d1cc-4c38-8827-8e5663190cb5"
+						target="_blank"
+						rel="noreferrer">Certfied Cloud Practitioner</a
+					>
+				</p>
+				<p class="text-lg sm:text-lg">
+					<span class="text-blue-300"
+						>National Cyber League Fall 2022</span
+					>:
+					<a
+						href="/ncl.pdf"
+						download="NCL_Fall_2022_TeamGame_Axel_Zublena.pdf"
+						target="_blank"
+						rel="noreferrer">80th out of 3926</a
+					>
+				</p>
+				<h2 class="text-lg sm:text-2xl pb-1 pt-2">Resume</h2>
+				<div class="flex gap-2">
+					<DownloadButton
+						fileURL="/AxelZublenaCV-EU.pdf"
+						fileName="AxelZublenaCV-EU.pdf"
+						text="Download EU CV"
+					/>
+					<DownloadButton
+						fileURL="/AxelZublenaCV-US.pdf"
+						fileName="AxelZublenaCV-US.pdf"
+						text="Download US CV"
+					/>
+				</div>
 			</div>
 		</div>
 	</div>

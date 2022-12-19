@@ -12,7 +12,7 @@
 
 <h1 class="text-3xl sm:text-5xl text-blue-400 text-center pb-5">Projects</h1>
 <Project
-	thumbnail="/projects/portfolio.png"
+	thumbnail="/profile_pic.jpg"
 	title="Portfolio - Personal website"
 	body="Website that shows what I can do and who I am."
 	technologies={["sveltekit", "tailwind"]}

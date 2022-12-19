@@ -5,11 +5,11 @@
 </script>
 
 <div>
-	<a href={fileURL} download={fileName}
+	<a href={fileURL} download={fileName} class="text-sm"
 		><button
 			class="bg-blue-400 hover:bg-gray-400 w-full sm:w-auto justify-center text-gray-900 font-bold px-4 py-3 rounded-xl inline-flex items-center"
 			><svg
-				class="h-8 w-8"
+				class="h-4 w-4"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
