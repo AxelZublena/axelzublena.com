@@ -5,6 +5,8 @@ import { marked } from "marked";
 import { parseHTML } from "linkedom"
 import { json } from '@sveltejs/kit';
 
+// TODO: Secure API
+
 export async function GET({ request }) {
 	try {
 		const dbConnection = await connectToDatabase();
