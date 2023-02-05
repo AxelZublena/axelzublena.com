@@ -21,7 +21,7 @@
 	<div class="text-justify">
 		<h2 class="text-2xl sm:text-3xl pb-3">About me</h2>
 		<p class="text-justify mb-3">
-			Hi! I'm a 3nd-year student at HZ University of Applied Sciences. I'm
+			Hi! I'm a 3rd-year student at HZ University of Applied Sciences. I'm
 			studying ICT (Information and Communication Technologies), majoring
 			in software engineering. After I obtained my high school diploma in
 			France, I decided to go abroad to do a bachelor in the Netherlands.
