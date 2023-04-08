@@ -84,7 +84,7 @@
 				<p class="text-lg sm:text-lg">
 					<span class="text-blue-300">Certification</span>:
 					<a
-						href="https://www.credly.com/earner/earned/share/9246d2ea-d1cc-4c38-8827-8e5663190cb5"
+						href="https://www.credly.com/badges/9246d2ea-d1cc-4c38-8827-8e5663190cb5/public_url"
 						target="_blank"
 						rel="noreferrer">Certfied Cloud Practitioner</a
 					>
