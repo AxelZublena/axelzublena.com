@@ -6,14 +6,11 @@
 
     export let data: any;
     $: segment = data.segment;
-</script>
 
-<svelte:head>
-    <script
-        src="https://cdn.telemetrydeck.com/websdk/telemetrydeck.min.js"
-        data-app-id={data.TELEMETRYDECK_ID}
-    ></script>
-</svelte:head>
+    import { dev } from "$app/environment";
+    import { inject } from "@vercel/analytics";
+    inject({ mode: dev ? "development" : "production" });
+</script>
 
 <div class="flex h-screen xl:overflow-hidden font-ubuntu">
     <div
