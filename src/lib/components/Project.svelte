@@ -24,7 +24,7 @@
         <h2 class="text-2xl sm:text-3xl font-semibold">{title}</h2>
         <p class="text-justify">{@html body}</p>
         <div class="flex flex-col sm:flex-row sm:items-center gap-2 pt-2">
-            <h4 class="font-bold text-blue-300">Technologies:</h4>
+            <h3 class="font-bold text-blue-300">Technologies:</h3>
             <div class="flex flex-row pb-3 sm:pb-0">
                 {#each technologies as technology}
                     {#if technology == "typescript"}
@@ -128,7 +128,7 @@
             </div>
         </div>
 
-        <h4 class="font-bold text-blue-300">
+        <h3 class="font-bold text-blue-300">
             GitHub link: <br class="sm:hidden" />
             <a
                 href="https://{link_github}"
@@ -138,9 +138,9 @@
             >
                 {link_github}
             </a>
-        </h4>
+        </h3>
         {#each links_optional as link}
-            <h4 class="font-bold text-blue-300">
+            <h3 class="font-bold text-blue-300">
                 {link.title} link: <br class="sm:hidden" />
                 <a
                     href="https://{link.src}"
@@ -150,7 +150,7 @@
                 >
                     {link.src}
                 </a>
-            </h4>
+            </h3>
         {/each}
         <!-- <h4 class="font-bold text-blue-300"> -->
         <!-- 	Demo/Hosted link: <br class="sm:hidden" /> -->
