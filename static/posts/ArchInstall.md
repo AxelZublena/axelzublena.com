@@ -122,7 +122,7 @@ mkfs.xfs /dev/sda3
 mount /dev/sda3 /mnt (mount the root partition)
 
 mkdir /mnt/boot
-mount /dev/sda1 /mn/boot (mount the boot partition)
+mount /dev/sda1 /mnt/boot (mount the boot partition)
 ```
 
 ###  9. Install Arch with base and important packages
