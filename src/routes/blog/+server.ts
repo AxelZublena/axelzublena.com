@@ -1,7 +1,8 @@
 import { connectToDatabase } from "$lib/db";
 import { ObjectId } from "mongodb";
 import hljs from 'highlight.js';
-import { marked } from "marked";
+import { Marked } from "marked";
+import { markedHighlight } from "marked-highlight";
 import { parseHTML } from "linkedom"
 import { json } from '@sveltejs/kit';
 
@@ -34,26 +35,15 @@ export async function POST({ request }) {
         // Parses the request body
         const post = await request.json()
 
-        marked.setOptions({
-            highlight: function(code) {
-                return hljs.highlightAuto(code).value;
-            }
-        });
-        marked.setOptions({
-            renderer: new marked.Renderer(),
-            highlight: function(code, lang) {
-                const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-                return hljs.highlight(code, { language }).value;
-            },
-            langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
-            pedantic: false,
-            gfm: true,
-            breaks: false,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false,
-            xhtml: false
-        });
+        const marked = new Marked(
+            markedHighlight({
+                langPrefix: 'hljs language-',
+                highlight(code, lang) {
+                    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+                    return hljs.highlight(code, { language }).value;
+                }
+            })
+        );
 
         let html = marked.parse(post.file.text);
         // Initializes HTML parser with the html text

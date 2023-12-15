@@ -135,8 +135,8 @@ Note:
 
 -   `amd-ucode` is the microcode package for my AMD Ryzen 7 4800H, use another one if your are not using an AMD cpu.
 -   `pipewire` & `pipewire-pulse` are optional. I want to use Pipewire instead of PulseAudio.
--   `xf86-video-amdgpu` is the graphic driver for my APU. Change it to the one you need
--   `xorg` is required to install KDE any other DE or WM once Arch is installed
+-   `xf86-video-amdgpu` is the graphic driver for my APU. Change it to the one you need.
+-   `xorg` is required to install KDE, any other DE or WM once Arch is installed.
 -   `neovim` is my editor of choice, but pick the one you like.
 
 ###  10. Generate an fstab file
@@ -210,9 +210,9 @@ systemctl enable NetworkManager
 #### 1. Set the password and create a new user
 
 ```bash
-passwd (set root pass)
-useradd -m axelz (make another user)
-passwd axelz (set that user's password)
+passwd (sets root pass)
+useradd -m axelz (makes another user)
+passwd axelz (sets that user\'s password)
 usermod -aG wheel,audio,video,optical,storage axelz
 ```
 
@@ -256,7 +256,7 @@ reboot
 
 ###  16. Install KDE
 
-App to install:
+App to install: 
 `5 13 14 21 35 44 46 58 106 124 139 142 145 154 170`
 
 ```bash
