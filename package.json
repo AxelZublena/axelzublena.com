@@ -12,8 +12,9 @@
         "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
     },
     "devDependencies": {
-        "@sveltejs/adapter-auto": "^2.0.0",
-        "@sveltejs/kit": "^1.14.0",
+        "@sveltejs/adapter-vercel": "^4.0.4",
+        "@sveltejs/kit": "^2.0.0",
+        "@sveltejs/vite-plugin-svelte": "^3.0.0",
         "autoprefixer": "^10.4.16",
         "eslint": "^8.44.0",
         "eslint-plugin-svelte": "^2.32.2",
@@ -28,10 +29,11 @@
     "type": "module",
     "dependencies": {
         "@auth/core": "^0.18.0",
-        "@auth/sveltekit": "^0.3.0",
+        "@auth/sveltekit": "^0.5.0",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
         "@vercel/analytics": "^1.0.2",
+        "@vercel/speed-insights": "^1.0.2",
         "dotenv": "^16.0.3",
         "eslint-config-prettier": "^9.0.0",
         "highlight.js": "^11.3.1",

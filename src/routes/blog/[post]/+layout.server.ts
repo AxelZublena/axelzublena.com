@@ -18,7 +18,7 @@ async function getPost(id: string) {
 		if (!post) {
 			console.log("no post")
 			// TODO: redirect user to Home or body
-			throw error(404, 'Post not found');
+			error(404, 'Post not found');
 		}
 
 		return {
@@ -28,6 +28,6 @@ async function getPost(id: string) {
 			title: post.title
 		}
 	} catch (err) {
-		throw error(404, err.message);
+		error(404, err.message);
 	}
 }

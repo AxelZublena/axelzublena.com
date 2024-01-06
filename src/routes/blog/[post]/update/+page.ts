@@ -4,10 +4,10 @@ import type { PageLoad } from "./$types"
 export const load: PageLoad = async ({ parent }) => {
 	const { session } = await parent()
 	if (!session?.user) {
-		throw redirect(302, "/")
+		redirect(302, "/");
 	}
 	if (session.user.name != "Axel Zublena") {
-		throw redirect(302, "/")
+		redirect(302, "/");
 	}
 	return {}
 }
