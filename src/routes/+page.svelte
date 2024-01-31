@@ -37,7 +37,8 @@
             in me a strong passion for the country. The following semester, I
             was given the opportunity to complete an internship with Naval
             Group. Working for a leading company in the defense industry taught
-            me a lot about working in a sensitive environment.
+            me a lot about working in a sensitive environment. This semester I
+            am interning at SES Satellites in The Hague.
             <br /> Finally, I've worked on many meaningful projects applying the
             Agile methodology. I like understanding the needs of stakeholders, translating
             them into pertinent solutions and developing them.
